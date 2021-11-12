@@ -21,7 +21,7 @@ function App() {
             password,
             confirmPassword
         };
-        const response = await fetch('http://localhost:3000/api/mail', {
+        const response = await fetch('https://web2-git-web2-joemanyak.vercel.app/api/mail', {
                 method: "POST",
                 body: JSON.stringify(formData),
                 headers: {

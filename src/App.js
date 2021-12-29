@@ -31,7 +31,7 @@ function App() {
                 }
             }
         )
-
+        const result;
         try {
             const result = await response.json()
         } catch (e) {

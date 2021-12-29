@@ -9,11 +9,12 @@ function App() {
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [isLoading, setIsLoading] = useState(false)
-    const [errorMessage, setErrorMessage] = useState([])
+    const [message, setMessage] = useState([])
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setErrorMessage([])
+        setMessage([])
         setIsLoading(true)
+
         const formData = {
             name,
             email,
@@ -21,6 +22,7 @@ function App() {
             password,
             confirmPassword
         };
+
         const response = await fetch('/api/mail', {
                 method: "POST",
                 body: JSON.stringify(formData),
@@ -29,11 +31,17 @@ function App() {
                 }
             }
         )
-        const result = await response.json()
-        if (result.isOk){
-         setErrorMessage(["Message sent"])
+
+        try {
+            const result = await response.json()
+        } catch (e) {
+            console.log('error:', e.message)
+        }
+
+        if (result.isOk) {
+            setMessage(["Message sent"])
         } else {
-        setErrorMessage(result.errorMessage)
+            setMessage(result.errorMessage)
         }
         setIsLoading(false)
     }
@@ -87,7 +95,7 @@ function App() {
                         timeout={30000} //3 secs
                     /> : null}
                 </div>
-                {errorMessage.map(e => <div className="error"> {e}</div>)}
+                {message.map(e => <div className="error"> {e}</div>)}
             </form>
         </div>
     )

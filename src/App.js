@@ -31,9 +31,9 @@ function App() {
                 }
             }
         )
-        const result;
+        let result;
         try {
-            const result = await response.json()
+            result = await response.json()
         } catch (e) {
             console.log('error:', e.message)
         }

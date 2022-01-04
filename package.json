@@ -11,13 +11,27 @@
     "react-loader-spinner": "^4.0.0",
     "react-scripts": "^3.4.4",
     "sanitize-html": "^2.5.3",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "eslint": "^7.32.0",
+    "eslint-config-metarhia": "^7.0.1",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-sonarjs": "^0.10.0",
+    "husky": "^7.0.2",
+    "prettier": "2.4.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "prepare": "husky install",
+    "jslint": "eslint \"**/*.js\" --ignore-path .gitignore",
+    "jslint:fix": "eslint --fix \"js/**/*.js\" --ignore-path .gitignore",
+    "format": "prettier --check . --ignore-path .gitignore",
+    "format:fix": "prettier --write . --ignore-path .gitignore",
+    "stylelint": "stylelint \"**/*.css\" --ignore-path .gitignore",
+    "stylelint:fix": "stylelint \"**/*.css\" --fix --ignore-path .gitignore"
   },
   "eslintConfig": {
     "extends": [

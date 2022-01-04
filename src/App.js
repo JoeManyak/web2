@@ -1,13 +1,13 @@
-import './App.css';
-import React, { useState } from 'react';
-import Loader from 'react-loader-spinner';
+import "./App.css";
+import React, { useState } from "react";
+import Loader from "react-loader-spinner";
 
 function App() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState([]);
   const handleSubmit = async (e) => {
@@ -23,22 +23,22 @@ function App() {
       confirmPassword,
     };
 
-    const response = await fetch('/api/mail', {
-      method: 'POST',
+    const response = await fetch("/api/mail", {
+      method: "POST",
       body: JSON.stringify(formData),
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     });
     let result;
     try {
       result = await response.json();
     } catch (e) {
-      console.log('error:', e.message);
+      console.log("error:", e.message);
     }
 
     if (result.isOk) {
-      setMessage(['Message sent']);
+      setMessage(["Message sent"]);
     } else {
       setMessage(result.errorMessage);
     }
@@ -80,7 +80,7 @@ function App() {
             required
             value={phone}
             onChange={(e) => {
-              setPhone(e.target.value.replace(/[^0-9\d]/gi, ''));
+              setPhone(e.target.value.replace(/[^0-9\d]/gi, ""));
             }}
             placeholder="Phone number"
           />

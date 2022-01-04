@@ -1,21 +1,21 @@
 .form-input {
-    font-size: 30px;
-    margin-top: 10px;
+  font-size: 30px;
+  margin-top: 10px;
 }
 
-.main-label{
-    margin-top: 80px;
+.main-label {
+  margin-top: 80px;
 }
 
 .form {
-    font-size: 30px;
-    text-align: center;
+  font-size: 30px;
+  text-align: center;
 }
 
-.spinner{
-    margin-top: 10px;
+.spinner {
+  margin-top: 10px;
 }
 
-.error{
-    color: red;
+.error {
+  color: red;
 }

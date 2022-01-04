@@ -1,4 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm run format && npm run stylelint && npm run jslint
+npm run format:fix && npm run stylelint:fix && npm run jslint:fix

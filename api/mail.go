@@ -22,11 +22,11 @@ const rateLimit = 5
 var Visitors = make(map[string]int)
 
 func Handler(w http.ResponseWriter, r *http.Request) {
-	if Visitors[r.Host] > rateLimit {
-		resp, err := json.Marshal(Response{
-			IsOk:         false,
-			ErrorMessage: []string{"Too many requests!"},
-		})
+        if Visitors[r.Host] > rateLimit {
+		    resp, err := json.Marshal(Response{
+		    	IsOk:         false,
+		    	ErrorMessage: []string{"Too many requests!"},
+	    	})
 		if err != nil {
 			log.Fatal(err.Error())
 		}
@@ -105,7 +105,7 @@ func (m MailForm) Send() []string {
 	msg += "Password : " + m.Password + "<br/>"
 	msg += "Confirm password : " + m.ConfirmPassword
 	msg = bluemonday.UGCPolicy().Sanitize(msg)
-	err = smtp.SendMail("smtp.gmail.com:587",
+	err = smtp.SendMail(os.Getenv("SMTP_URL"),
 		smtp.PlainAuth("", m.Config.from, m.Config.pass, "smtp.gmail.com"),
 		m.Config.from, []string{to}, []byte(msg))
 	if err != nil {

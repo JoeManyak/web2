@@ -9,14 +9,16 @@
       "experimentalObjectRestSpread": true
     }
   },
-  "plugins": ["react"],
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "plugins": ["react","sonarjs"],
+  "extends": ["eslint:recommended", "plugin:react/recommended","plugin:sonarjs/recommended"],
   "rules": {
     "comma-dangle": 0,
     "react/jsx-uses-vars": 1,
     "react/display-name": 1,
     "no-unused-vars": "warn",
-    "no-unexpected-multiline": "warn"
+    "no-unexpected-multiline": "warn",
+    "sonarjs/elseif-without-else": 1,
+    "prefer-destructuring": 1
   },
   "settings": {
     "react": {
